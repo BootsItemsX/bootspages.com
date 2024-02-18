@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        @keyframes a {
+            from{
+                 transform: rotate(0deg);
+            }
+
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+         .cuadradito{
+           
+            width: 100px;
+            height: 100px;
+            animation:  a 1s linear infinite;
+            background-color: black;
+            border-radius: 50%;
+            border: 10px solid red;
+            border-style: dotted;
+         }
+
+         .x{
+          
+             position: absolute;
+         }
+    </style>
+ <div class="x" onclick="ac()">
+    <div class="cuadradito"></div>
+ </div>
+
+
+ <script>
+document.addEventListener("DOMContentLoaded", ()=>{
+
+    
+   let s =  setInterval(()=>{
+    let time = 10;
+         time --;
+     },100);
+    document.addEventListener("mousemove" ,(e)=>{
+         document.querySelector('.x').style.top = e.clientY + "px";
+         document.querySelector('.x').style.left = e.clientX + "px";
+
+         document.querySelector('.x').style.transition = `${s}s`;
+         
+        
+    });
+   
+    // document.addEventListener("mouseover", ()=>{
+    //         alert("Te Atrape Perdiste...");
+    //      })
+    
+     let message = document.createElement("span");
+     message.style.tra = "red";
+     document.querySelector(".cuadradito").appendChild(message.innerHTML = "Click");
+  ac = ()=>{
+   let userSpeed = prompt("Ingrese la lentitud en segundos para que la rueda gire:");
+
+   if(userSpeed) {
+   cuadradito.style.animationDuration = userSpeed + 's ';
+}
+ };
+});
+
+ </script>
+</body>
+</html>
